@@ -50,3 +50,5 @@ crashlytics-build.properties
 Assets/Dependents/
 Assets/Projects/
 Packages/package/
+Assets/Dependents.zip
+Packages/package.zip

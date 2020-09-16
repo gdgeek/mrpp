@@ -159,12 +159,15 @@ namespace MrPP.Myth
             return new AsgardPose(position, up, forward, scale);
         }
         public void setupMark(Transform mark) {
-            TransformData data = new TransformData(mark, TransformData.Type.World);
-            data.write(ref _mark, TransformData.Type.World);
+          //  TransformData data = new TransformData(mark, TransformData.Type.World);
+       //     data.write(ref _mark, TransformData.Type.World);
+            _mark.transform.position = mark.position;
+            _mark.transform.rotation = mark.rotation;
         }
+        /*
         public void setupMark(TransformData data) {
             data.write(ref _mark, TransformData.Type.Local);
-        }
+        }*/
         public void setup(Transform hero, Transform qrmark)
         {
             Yggdrasil.AsgardPose ap = Yggdrasil.WorldToAsgard(new Yggdrasil.WorldPose(Yggdrasil.Instance.transform), hero);

@@ -154,7 +154,7 @@ namespace MrPP.Project {
             State state = new State();
             state.onStart += delegate
             {
-                TaskWait tw = new TaskWait(0);
+                TaskWait tw = new TaskWait(0.03f);
                 TaskManager.PushBack(tw, delegate
                 {
                     _process.fsm.post("start");

@@ -7,6 +7,8 @@ namespace MrPP.Myth
 {
     public class HeroAudoList : GDGeek.Singleton<HeroAudoList>, IEnumerable
     {
+        [SerializeField]
+        public int count;
 /*
         public Action<IHero> onAdd{
             get;
@@ -33,6 +35,7 @@ namespace MrPP.Myth
         {
             _heros.Add(hero);
             onChange?.Invoke();
+            count = _heros.Count;
         }
 
         public void remove(IHero hero)

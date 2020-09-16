@@ -29,6 +29,7 @@ namespace MrPP.Project
         }
         public void doClicked(IntId id)
         {
+            Debug.LogError(id.value);
             onSelected?.Invoke(list_[id.value]);
         }
         internal void refresh()
@@ -37,14 +38,17 @@ namespace MrPP.Project
             {
                 GameObject.DestroyImmediate(button.gameObject);
             }
+            buttons_.Clear();
 
             for (int i = 0; i < list_.Count; ++i)
             {
-                B button = GameObject.Instantiate(_phototype);
+                B button = GameObject.Instantiate(_phototype, this.transform, true);
                 button.load(list_[i]);
+                button.gameObject.SetActive(true);
                 IntId id = button.gameObject.AskComponent<IntId>();
                 id.value = i;
-                button.transform.SetParent(this.transform);
+                buttons_.Add(button);
+               // button.transform.SetParent(this.transform);
 
             }
             _grid.UpdateCollection();

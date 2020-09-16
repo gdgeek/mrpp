@@ -69,6 +69,8 @@ namespace MrPP.Project {
 
         private void doJoin(ServerResponse serverResponse)
         {
+            Debug.LogError(serverResponse.uri);
+            Debug.LogError("!!");
             Network.NetworkSystem.Instance.serverResponse = serverResponse;
             this.fsm_.post("client");
         }
@@ -119,10 +121,12 @@ namespace MrPP.Project {
         {
             List<HeroData> datas = new List<HeroData>();
             var list = HeroAudoList.Instance;
+            Debug.LogError(list.count);
             foreach (var item in list) {
                 datas.Add(item.data);
             }
             _clients.setDatas(datas);
+            _clients.refresh();
         }
 
         private StateBase play()

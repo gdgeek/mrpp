@@ -62,7 +62,7 @@ namespace MrPP.Project
                 list.Add(server.Value);
 
             }
-            _hostList.setData(list);
+            _hostList.setDatas(list);
             _hostList.refresh();
             _adjust.SetActive(false);
             _start.SetActive(false);

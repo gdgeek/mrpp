@@ -38,6 +38,8 @@ namespace MrPP.Project {
 
         [SerializeField]
         private HostList _hosts;
+        [SerializeField]
+        private ClientList _clients;
 
         [SerializeField]
         private Basis.Process _process = null;
@@ -65,7 +67,7 @@ namespace MrPP.Project {
             };
         }
 
-        private void doClient(ServerResponse serverResponse)
+        private void doJoin(ServerResponse serverResponse)
         {
             Network.NetworkSystem.Instance.serverResponse = serverResponse;
             this.fsm_.post("client");
@@ -86,22 +88,17 @@ namespace MrPP.Project {
         }
         public void doPlay()
         {
-           // Debug.LogError("play");
             fsm_.post("play");
         }
 
-        /*
-             public void close()
-             {
-                 DestroyImmediate(tracking_);
-                 tracking_ = null;
-             }
-             */
+    
 
         FSM fsm_ = new FSM();
         void Start()
         {
-            _hosts.onSelected = doClient;
+            _hosts.onSelected = doJoin;
+            // _clients.onSelected += dele
+            HeroAudoList.Instance.onChange += doClient;
 
             fsm_.addState("begin", begin());
             fsm_.addState("input", input());
@@ -116,6 +113,16 @@ namespace MrPP.Project {
             fsm_.addState("play", play());
             fsm_.init("begin");
 
+        }
+
+        private void doClient()
+        {
+            List<HeroData> datas = new List<HeroData>();
+            var list = HeroAudoList.Instance;
+            foreach (var item in list) {
+                datas.Add(item.data);
+            }
+            _clients.setDatas(datas);
         }
 
         private StateBase play()
@@ -183,7 +190,6 @@ namespace MrPP.Project {
             state.addAction("host", "host");
             state.addAction("client", delegate {
 
-              //  if(Network.NetworkSystem.Instance.servers.Count != 0
                 return "client";
             });
             state.onOver += delegate

@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
+using Mirror.Discovery;
 
-public class HostButton : MonoBehaviour
+namespace MrPP.Project
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HostButton : ButtonComponent<ServerResponse>
     {
-        
-    }
+        public override void load(ServerResponse t)
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+
     }
 }

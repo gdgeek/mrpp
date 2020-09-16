@@ -7,7 +7,7 @@ namespace MrPP.Myth
 {
     public class HeroAudoList : GDGeek.Singleton<HeroAudoList>, IEnumerable
     {
-
+/*
         public Action<IHero> onAdd{
             get;
             set;
@@ -19,9 +19,9 @@ namespace MrPP.Myth
             get;
             set;
         }
+        */
 
-
-        public Action<IHero> onRefresh
+        public Action onChange
         {
             get;
             set;
@@ -32,28 +32,20 @@ namespace MrPP.Myth
         public void add(IHero hero)
         {
             _heros.Add(hero);
-            if (onAdd != null) {
-                onAdd.Invoke(hero);
-            }
+            onChange?.Invoke();
         }
 
         public void remove(IHero hero)
         {
             _heros.Remove(hero);
-            if (onRemove != null)
-            {
-                onRemove.Invoke(hero);
-            }
+            onChange?.Invoke();
         }
 
         public void refresh(IHero hero)
         {
             if (_heros.Contains(hero)) {
 
-                if (onRefresh != null)
-                {
-                    onRefresh.Invoke(hero);
-                }
+                onChange?.Invoke();
             }
         }
         public bool contains(IHero hero)
@@ -95,7 +87,7 @@ namespace MrPP.Myth
         {
             return _heros.GetEnumerator();
         }
-
+        #endregion
         public IHero getServer()
         {
             Debug.Log("_heros" + _heros.Count);
@@ -109,6 +101,5 @@ namespace MrPP.Myth
         }
 
 
-        #endregion
     }
 }

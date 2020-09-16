@@ -35,6 +35,8 @@ namespace MrPP.Project {
         private MarkLinkingButton _button;
 
 
+        [SerializeField]
+        private Status _status;
 
         [SerializeField]
         private HostList _hosts;
@@ -88,7 +90,7 @@ namespace MrPP.Project {
 
             fsm_.post("adjust");
         }
-        public void doPlay()
+        public void doPlaying()
         {
             fsm_.post("play");
         }
@@ -98,6 +100,8 @@ namespace MrPP.Project {
         FSM fsm_ = new FSM();
         void Start()
         {
+            _status.onOnline += doOnline;
+            _status.onPlaying += doPlaying;
             _hosts.onSelected = doJoin;
             // _clients.onSelected += dele
             HeroAudoList.Instance.onChange += doClient;
@@ -115,6 +119,11 @@ namespace MrPP.Project {
             fsm_.addState("play", play());
             fsm_.init("begin");
 
+        }
+
+        private void doOnline()
+        {
+            fsm_.post("online");
         }
 
         private void doClient()
@@ -192,10 +201,7 @@ namespace MrPP.Project {
 
 
             state.addAction("host", "host");
-            state.addAction("client", delegate {
-
-                return "client";
-            });
+            state.addAction("client", "client");
             state.onOver += delegate
             {
 
@@ -212,9 +218,13 @@ namespace MrPP.Project {
             State state = new State();
             state.onStart += delegate
             {
-                _button.setState(MarkLinkingButton.State.Host);
+               
                 Network.NetworkSystem.Instance.startHost();
             };
+            state.addAction("online", delegate
+            {
+                _button.setState(MarkLinkingButton.State.Host);
+            });
             state.onOver += delegate
             {
 

@@ -63,7 +63,7 @@ namespace MrPP.Project
 
             }
             _hostList.setDatas(list);
-            _hostList.refresh();
+           //_hostList.refresh();
             _adjust.SetActive(false);
             _start.SetActive(false);
             _host.SetActive(false);

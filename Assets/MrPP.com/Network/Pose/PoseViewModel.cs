@@ -38,10 +38,10 @@ namespace MrPP.Network
       
         public void locked()
         {
-            Debug.LogError("locked");
+          //  Debug.LogError("locked");
             if (Hero.Instance != null) {
 
-                Debug.LogError("locked" + Hero.Instance.id);
+//                Debug.LogError("locked" + Hero.Instance.id);
                 Bridge.Instance.post(this.handle, "locked_", Hero.Instance.id);
             }
         }

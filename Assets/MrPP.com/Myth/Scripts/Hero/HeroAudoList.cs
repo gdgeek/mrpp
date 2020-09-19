@@ -55,6 +55,7 @@ namespace MrPP.Myth
         {
             return (_heros.Contains(hero));
         }
+        /*
         public IHero getHeroById(uint id)
         {
             foreach (IHero hero in _heros)
@@ -66,7 +67,7 @@ namespace MrPP.Myth
             }
             return null;
         }
-
+        */
         public IHero getHeroByNetId(uint netId)
         {
             foreach (IHero hero in _heros)

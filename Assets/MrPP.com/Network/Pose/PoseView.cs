@@ -35,15 +35,15 @@ namespace MrPP.Network {
 
         private void doLocked(uint id)
         {
-            Debug.LogError("id" + id);
+//            Debug.LogError("id" + id);
             if (!_binding.controler)
             {
-                Debug.LogError("lost");
+  //              Debug.LogError("lost");
                 lostControler?.Invoke();
             }
             else {
 
-                Debug.LogError("has");
+    //            Debug.LogError("has");
                 hasControler?.Invoke();
             }
         }

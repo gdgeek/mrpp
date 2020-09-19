@@ -20,8 +20,8 @@ namespace MrPP.Network {
                     Debug.LogError("what?");
                     return true;
                 }
-                Debug.LogError("id" + Hero.Instance.id);
-                Debug.LogError("getLocked" + getLocked());  
+//                Debug.LogError("id" + Hero.Instance.id);
+  //              Debug.LogError("getLocked" + getLocked());  
                 return (Hero.Instance.id == getLocked());
             }
         }

@@ -3,6 +3,7 @@ using Microsoft.MixedReality.Toolkit.Utilities;
 using MrPP.Helper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -25,14 +26,18 @@ namespace MrPP.Project
         List<B> buttons_ = new List<B>();
         internal void setDatas(List<T> list)
         {
-            list_ = list;
+            if (list_ == null || !list_.SequenceEqual(list))
+            {
+                list_ = list;
+                refresh();
+            }
         }
         public void doClicked(IntId id)
         {
-            Debug.LogError(id.value);
+//            Debug.LogError(id.value);
             onSelected?.Invoke(list_[id.value]);
         }
-        internal void refresh()
+        private void refresh()
         {
             foreach (B button in buttons_)
             {

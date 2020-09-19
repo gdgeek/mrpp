@@ -9,15 +9,49 @@ using UnityEngine;
 namespace MrPP.Input
 {
 
-    ///[RequireComponent(typeof(Interactable))]
+    [RequireComponent(typeof(NearInteractionTouchable))]
     public class Inputable : MonoBehaviour,
         IMixedRealityFocusHandler,
-        IMixedRealityPointerHandler
+        IMixedRealityPointerHandler,
+        IMixedRealityTouchHandler
     {
+
+
+      
+
+        void IMixedRealityTouchHandler.OnTouchCompleted(HandTrackingInputEventData eventData)
+        {
+            IInputHandler[] inputs = this.gameObject.GetComponents<IInputHandler>();
+            foreach (var input in inputs)
+            {
+                input.focusExit();
+            }
+            IClicker[] clickers = this.gameObject.GetComponents<IClicker>();
+            foreach (var click in clickers)
+            {
+                click.execute();
+            }
+        }
+
+        void IMixedRealityTouchHandler.OnTouchStarted(HandTrackingInputEventData eventData)
+        {
+            IInputHandler[] inputs = this.gameObject.GetComponents<IInputHandler>();
+            foreach (var input in inputs)
+            {
+                input.focusEnter();
+            }
+        }
+
+        void IMixedRealityTouchHandler.OnTouchUpdated(HandTrackingInputEventData eventData)
+        {
+       
+        }
+
+
         public void Awake() {
             // Interactable interactable =  this.gameObject.AskComponent<Interactable>();
-            // interactable.OnClick.AddListener(doClick);
-           // Interactable
+           // interactable.OnClick.AddListener(doClick);
+            // Interactable
         }
 
         public void OnFocusEnter(FocusEventData eventData)
@@ -68,6 +102,7 @@ namespace MrPP.Input
             }
         }
 
+       
         private  void doClick() {
             IClicker[] clickers = this.gameObject.GetComponents<IClicker>();
             foreach (var click in clickers) {

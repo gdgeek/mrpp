@@ -13,23 +13,7 @@ namespace MrPP.Restful {
             void recevie(string data);
 
         }
-        /*
-        public void addListener(Listener listener) {
-
-            if (!_map.ContainsKey(listener.type)) {
-                _map[listener.type] = new HashSet<Listener>();
-            }
-            _map[listener.type].Add(listener);
-        }
-        public void removeListener(Listener listener) {
-
-            if (!_map.ContainsKey(listener.type))
-            {
-                return;
-            }
-            _map[listener.type].Remove(listener);
-        }*/
-
+      
 
         internal void broadcasting(Heartbeat.Data data)
         {

@@ -8,8 +8,10 @@ namespace MrPP.Network
     public interface IPoseModel
     {
         bool controler { get; }
-        void locked();
+
+        void askControl();
         void unlocked();
         void update(AsgardPose aPose);
+        void setPose(AsgardPose aPose);
     }
 }

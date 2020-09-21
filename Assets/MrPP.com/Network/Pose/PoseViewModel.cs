@@ -36,7 +36,7 @@ namespace MrPP.Network
         [SerializeField]
         private PoseBinding _binding;
       
-        public void locked()
+        public void askControl()
         {
           //  Debug.LogError("locked");
             if (Hero.Instance != null) {
@@ -103,6 +103,11 @@ namespace MrPP.Network
 
                 BridgeBroadcast.Instance.removeReceiver(this);
             }
+        }
+
+        public void setPose(Yggdrasil.AsgardPose aPose)
+        {
+            pose_ = aPose;
         }
     }
 }

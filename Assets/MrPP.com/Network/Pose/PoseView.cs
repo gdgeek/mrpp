@@ -27,7 +27,9 @@ namespace MrPP.Network {
         UnityEvent lostControler;
         [SerializeField]
         UnityEvent hasControler;
-        void Start() {
+        void Start()
+        {
+            _model.setPose(MrPP.Myth.Yggdrasil.Instance.GetAsgardPose(this.target));
             _binding.onPose += doPose;
             doPose(_binding.getPose());
             _binding.onLocked += doLocked;

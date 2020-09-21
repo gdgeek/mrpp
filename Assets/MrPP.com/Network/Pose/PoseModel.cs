@@ -1,4 +1,5 @@
 ﻿using MrPP.Myth;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,9 +21,9 @@ namespace MrPP.Network {
             }
         }
 
-        public void locked()
+        public void askControl()
         {
-            model.locked();
+            model.askControl();
 
         }
 
@@ -35,5 +36,11 @@ namespace MrPP.Network {
         {
             model.update(aPose);
         }
+
+        public void setPose(Yggdrasil.AsgardPose aPose)
+        {
+            model.setPose(aPose);
+        }
+
     }
 }

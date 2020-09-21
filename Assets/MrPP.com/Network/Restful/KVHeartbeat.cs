@@ -34,7 +34,7 @@ namespace MrPP.Restful
         void changed(SyncMap.Operation op, string key, string item)
         {
             
-           // KVStation.Instance.broadcasting(key, item);
+            KVStation.Instance.broadcasting(key, item);
            
         }
         public static KVHeartbeat Instance = null;
@@ -83,7 +83,9 @@ namespace MrPP.Restful
                 {
                     foreach (var d in datas)
                     {
-
+                        if (_map.ContainsKey(d.key) && _map[d.key] == d.value) {
+                            continue;
+                        }
                         _map[d.key] = d.value;
                      
                     }

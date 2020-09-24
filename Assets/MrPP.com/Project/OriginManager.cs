@@ -40,7 +40,7 @@ namespace MrPP.Project {
         public void doClicked() {
             if (target_ != null) {
                 Yggdrasil.Instance.setupMark(target_);
-                _process.fsm.post("start");
+                _process.doStart();
 
             }
         }

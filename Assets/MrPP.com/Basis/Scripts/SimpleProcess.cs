@@ -36,7 +36,7 @@ namespace MrPP.Basis
 
         private FSM fsm_ = new FSM();
 
-        public override FSM fsm => fsm_;
+       // public override FSM fsm => fsm_;
 
         // Start is called before the first frame update
         void Start()
@@ -79,6 +79,9 @@ namespace MrPP.Basis
             return state;
         }
 
-      
+        public override void doStart()
+        {
+            fsm_.post("start");
+        }
     }
 }

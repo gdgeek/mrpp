@@ -4,6 +4,6 @@ using UnityEngine;
 namespace MrPP.Basis
 {
     public abstract class Process : MonoBehaviour {
-        public abstract FSM fsm{ get;}
+        public abstract void doStart();
     }
 }

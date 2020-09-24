@@ -143,6 +143,7 @@ namespace MrPP.Project {
             State state = new State();
             state.onStart += delegate
             {
+                _process.doStart();
                 _button.setState(MarkLinkingButton.State.Play);
             };
             state.addAction("adjust", delegate {
@@ -177,7 +178,8 @@ namespace MrPP.Project {
                 TaskWait tw = new TaskWait(0.03f);
                 TaskManager.PushBack(tw, delegate
                 {
-                    _process.fsm.post("start");
+                    _status.play();
+                    //
                 });
                 TaskManager.Run(tw);
                 

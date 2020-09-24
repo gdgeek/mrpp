@@ -16,6 +16,8 @@ namespace MrPP.Restful {
 
         internal void broadcasting(string key, string value)
         {
+            Debug.LogError(key);  
+
             IEventFactory[] factories = this.gameObject.GetComponentsInChildren<IEventFactory>();
 
             foreach (var factory in factories)

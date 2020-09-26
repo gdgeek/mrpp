@@ -53,6 +53,7 @@ namespace MrPP.Project {
         
         public void open()
         {
+
             tracking_ = this.gameObject.AddComponent<Tracking.TrackingHandler>();
             tracking_.addMaker(_mark);
 
@@ -60,6 +61,7 @@ namespace MrPP.Project {
             {
                 target_ = target;
                 _button.show(target_);
+                Debug.LogError("Mark");
                 fsm_.post("mark");
                 
             };

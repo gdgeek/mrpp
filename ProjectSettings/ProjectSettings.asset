@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: machine.mrpp.com
-  productName: machine
+  companyName: Foxconn.mrpp.com
+  productName: Foxconn
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,7 +40,8 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 0}
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 6cd5980dd2207d64fb70e962345e57d1,
+    type: 3}
   m_ShowUnitySplashAds: 0
   m_AdsAndroidGameId: 
   m_AdsIosGameId: 
@@ -273,7 +274,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: d7776e47f36f995458a92021b99f44d5, type: 3}
+      m_Icon: {fileID: 2800000, guid: 6cd5980dd2207d64fb70e962345e57d1, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -618,16 +619,16 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: mrpp.machine
+  metroPackageName: mrpp.Foxconn
   metroPackageVersion: 1.0.0.1
-  metroCertificatePath: Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: DefaultCompany
-  metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 805a2c04e4aad701
-  metroApplicationDescription: mrpp.machine
+  metroCertificateSubject: Foxconn.mrpp.com
+  metroCertificateIssuer: Foxconn.mrpp.com
+  metroCertificateNotAfter: 80c0f75c38b3d701
+  metroApplicationDescription: mrpp.Foxconn
   wsaImages: {}
-  metroTileShortName: machine
+  metroTileShortName: Foxconn
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

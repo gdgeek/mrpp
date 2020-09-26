@@ -63,17 +63,28 @@ namespace MrPP.Project
 
             }
             _hostList.setDatas(list);
-           //_hostList.refresh();
+            
+            //_hostList.refresh();
             _adjust.SetActive(false);
             _start.SetActive(false);
             _host.SetActive(false);
+
             _wait.SetActive(false);
             _hostList.gameObject.SetActive(false);
             switch (state_)
             {
                 case State.Input:
-                    _host.SetActive(true);
+
                     _hostList.gameObject.SetActive(true);
+
+                    if (list.Count != 0)
+                    {
+                        _host.SetActive(false);
+                    }
+                    else
+                    {
+                        _host.SetActive(true);
+                    }
                     break;
                 case State.Host:
                     _start.SetActive(true);

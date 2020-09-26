@@ -9,6 +9,7 @@ using ZXing;
 using ZXing.QrCode;
 using ZXing.Common;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 
 #if NO_UNITY_VUFORIA
@@ -38,7 +39,7 @@ namespace MrPP.Common
 
         public bool reading;
 
-        public string QRMessage;
+        public List<string> QRMessage;
         // public UnityEngine.UI.Text labelQrc;
         public AudioSource audioSource;
         Thread qrThread;
@@ -146,8 +147,10 @@ namespace MrPP.Common
             //labelQrc.text = QRMessage;
             if (gotResult)
             {
-//                Debug.LogError(QRMessage);
-                this.onRecevie?.Invoke(QRMessage);
+                foreach (var message in QRMessage) {
+                    this.onRecevie?.Invoke(message);
+                }
+
                 // audioSource.Play();
                 gotResult = false;
             }
@@ -164,13 +167,17 @@ namespace MrPP.Common
                 {
                     try
                     {
-                        ZXing.Result result = barcodeReader.Decode(c, W, H);
+                        ZXing.Result[] result = barcodeReader.DecodeMultiple(c, W, H);
                         c = null;
-                        if (result != null)
+                        QRMessage.Clear();
+                        foreach (var r in result) {
+                            QRMessage.Add(r.Text);
+                        }
+                       /* if (result != null)
                         {
                             QRMessage = result.Text;
 
-                        }
+                        }*/
                     }
                     catch (Exception e)
                     {

@@ -8,9 +8,16 @@ namespace MrPP.Helper {
         [SerializeField]
         private float _speed = 1f;
       
-	
-	    // Update is called once per frame
-	    void Update () {
+	    public Vector3 eulerAngles {
+            set {
+                _eulerAngles = value;
+            }
+            get {
+                return _eulerAngles;
+            }
+        }
+        // Update is called once per frame
+        void Update () {
             this.transform.Rotate(_eulerAngles * _speed * Time.deltaTime);
 	    }
     }

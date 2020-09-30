@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace MrPP.UX
 {
-    public interface ICountown
+    public interface IToolbarTemplate
     {
 
-        void close();
-        void open();
-        void percent(float per);
+        string style { get; }
+       // void filtering(ToolbarItem item);
     }
 }

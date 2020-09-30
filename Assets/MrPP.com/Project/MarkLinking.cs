@@ -105,7 +105,6 @@ namespace MrPP.Project {
             _status.onOnline += doOnline;
             _status.onPlaying += doPlaying;
             _hosts.onSelected = doJoin;
-            // _clients.onSelected += dele
             HeroAudoList.Instance.onChange += doClient;
 
             fsm_.addState("begin", begin());

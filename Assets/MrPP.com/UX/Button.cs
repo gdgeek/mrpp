@@ -68,9 +68,25 @@ namespace MrPP.UX
                 _icon = value;
             }
         }
+        public void setup() {
+#if UNITY_EDITOR
+            _interactable = this.gameObject.GetComponent<Interactable>();
+            this._selected = this.transform.Find("offset").Find("BackPlate").Find("Selected").gameObject;
+            this._disabled = this.transform.Find("offset").Find("BackPlate").Find("Disabled").gameObject;
+            this._enabled = this.transform.Find("offset").Find("BackPlate").Find("Enabled").gameObject;
+            _tipUI = this.transform.Find("offset").Find("SeeItSayItLabel").Find("TextMeshPro").GetComponent<TextMeshPro>();
+            _tip = this.transform.Find("offset").Find("SeeItSayItLabel").gameObject;
+            _textUI = this.transform.Find("offset").Find("IconAndText").Find("TextMeshPro").GetComponent<TextMeshPro>();//.gameObject;
+            _iconUI = this.transform.Find("offset").Find("IconAndText").Find("Icon").GetComponent<TextMeshPro>();
+            _json = Resources.Load<TextAsset>("Font/font.json");
+#endif
+        }
+        [SerializeField]
+        private TextAsset _json;
         public void refresh() {
+
             _textUI.text = _text;
-            _iconUI.text = FontIconManager.Instance.getFontIcon(_icon).ToString();
+            _iconUI.text = FontIconManager.GetFontIcon(_json, _icon).ToString();
 
             _tipUI.text = "说:'" + _command + "'";
             if (_state == State.Selected)
@@ -112,6 +128,7 @@ namespace MrPP.UX
 
         public void execute()
         {
+            setup();
             refresh();
         }
     }

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e20fc4bf94f2ac34994f6a0fd1697a90
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: huxiaobo-gdh
+  fontNames:
+  - huxiaobo-gdh
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4e969f94b985c604da257e787960621f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

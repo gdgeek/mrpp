@@ -37,7 +37,28 @@ namespace MrPP.UX {
                 return map_;
             }
         }
-      
+
+        public static char GetFontIcon(TextAsset json, string key) {
+            var map = new Dictionary<string, char>();
+            
+            Data data = JsonUtility.FromJson<Data>(json.text);
+            foreach (var kv in data.list)
+            {
+
+                map.Add(kv.key, (char)(kv.value));
+            }
+            if (key != null)
+            {
+               
+                if (map.ContainsKey(key))
+                {
+                    return map[key];
+                }
+
+            }
+            Debug.Log(0);
+            return '\0';
+        }
         
 
         public char getFontIcon(string key) {

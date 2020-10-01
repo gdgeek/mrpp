@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 76133f38bb687c84c9481da5ea67b86f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: zcoolqingkehuangyouti
+  fontNames:
+  - zcoolqingkehuangyouti
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c98f7d7d7d63a6649a9d32ceaf6c88f1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

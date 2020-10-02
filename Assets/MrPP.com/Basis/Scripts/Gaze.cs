@@ -31,12 +31,13 @@ namespace MrPP.Helper {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, float.MaxValue, _tapToCenterLayerMask))
             {
-
                 _focus.transform.position = hit.point;
                 _focus.transform.LookAt(hit.normal);
                 // Inputable
                 Inputable target = hit.collider.gameObject.GetComponent<Inputable>();
-
+                if (target == null) {
+                    Debug.LogError(hit.collider.gameObject.name);
+                }
                 if (target == null && target_ !=null) {
                     doChange(target_, null);
                     target_ = null;
@@ -62,7 +63,7 @@ namespace MrPP.Helper {
 
         private void doChange(Inputable oldValue, Inputable newValue)
         {
-
+            
             if (newValue == null)
             {
                 _focus.SetActive(false);

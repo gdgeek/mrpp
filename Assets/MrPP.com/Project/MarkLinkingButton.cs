@@ -79,10 +79,12 @@ namespace MrPP.Project
 
                     if (list.Count != 0)
                     {
+                        Debug.LogError("!=");
                         _host.SetActive(false);
                     }
                     else
                     {
+                        Debug.LogError("==");
                         _host.SetActive(true);
                     }
                     break;

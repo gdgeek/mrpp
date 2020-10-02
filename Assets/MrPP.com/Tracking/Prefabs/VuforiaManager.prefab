@@ -2106,9 +2106,9 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: X4
+  mTrackableName: mark3
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/MrPP-Three.xml
+  mDataSetPath: Vuforia/ICONS.xml
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 0.074
@@ -8093,9 +8093,9 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: X1
+  mTrackableName: mark2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/MrPP-Three.xml
+  mDataSetPath: Vuforia/ICONS.xml
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 0.074
@@ -8681,9 +8681,9 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: X5
+  mTrackableName: mark4
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/MrPP-Three.xml
+  mDataSetPath: Vuforia/ICONS.xml
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 0.074

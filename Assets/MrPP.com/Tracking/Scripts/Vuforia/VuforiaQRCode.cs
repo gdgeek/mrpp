@@ -39,7 +39,7 @@ namespace MrPP.Common
 
         public bool reading;
 
-        public List<string> QRMessage;
+        public List<string> _qrMessage = new List<string>();
         // public UnityEngine.UI.Text labelQrc;
         public AudioSource audioSource;
         Thread qrThread;
@@ -147,7 +147,7 @@ namespace MrPP.Common
             //labelQrc.text = QRMessage;
             if (gotResult)
             {
-                foreach (var message in QRMessage) {
+                foreach (var message in _qrMessage) {
                     this.onRecevie?.Invoke(message);
                 }
 
@@ -161,23 +161,20 @@ namespace MrPP.Common
             barcodeReader.ResultFound += OnResultF;
             while (running)
             {
-             //  Debug.Log("1");
-
+          
                 if (reading && c != null && W > 0 && H > 0)
                 {
                     try
                     {
                         ZXing.Result[] result = barcodeReader.DecodeMultiple(c, W, H);
-                        c = null;
-                        QRMessage.Clear();
-                        foreach (var r in result) {
-                            QRMessage.Add(r.Text);
-                        }
-                       /* if (result != null)
-                        {
-                            QRMessage = result.Text;
+                        _qrMessage.Clear();
+                        if (result != null) { 
+                            foreach (var r in result)
+                            {
+                                _qrMessage.Add(r.Text);
+                            }
+                        }    
 
-                        }*/
                     }
                     catch (Exception e)
                     {

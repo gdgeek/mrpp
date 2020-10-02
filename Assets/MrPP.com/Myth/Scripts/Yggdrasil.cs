@@ -133,7 +133,9 @@ namespace MrPP.Myth
         public static WorldPose AsgardToWorld(AsgardPose asgard, Transform transform) {
 
             //Vector3 position = transform.TransformDirection(asgard.position);
-            Vector3 position = transform.TransformPoint(asgard.position) * Yggdrasil.Instance._dilatation;
+
+            float d = Yggdrasil.IsInitialized ? Yggdrasil.Instance._dilatation : 1.0f;
+            Vector3 position = transform.TransformPoint(asgard.position) * d;
             Vector3 up = transform.TransformDirection(asgard.up);
             Vector3 forward = transform.TransformDirection(asgard.forward);
             Vector3 scale = asgard.scale;
@@ -150,7 +152,8 @@ namespace MrPP.Myth
 
             Vector3 o = transform.localScale;
             transform.setGlobalScale(Vector3.one);
-            Vector3 position = transform.InverseTransformPoint(world.position)/ Yggdrasil.Instance._dilatation;
+            float d = Yggdrasil.IsInitialized ? Yggdrasil.Instance._dilatation : 1.0f;
+            Vector3 position = transform.InverseTransformPoint(world.position)/ d;
          
             Vector3 up = transform.InverseTransformDirection(world.up);
             Vector3 forward = transform.InverseTransformDirection(world.forward);

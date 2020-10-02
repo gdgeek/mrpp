@@ -1,4 +1,5 @@
-﻿using MrPP.Input;
+﻿using GDGeek;
+using MrPP.Input;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ namespace MrPP.Helper {
                     doChange(target_, null);
                     target_ = null;
                 }else if (target_ != target) {
-
+                   
                     doChange(target_, target);
                     target_ = target; 
                 }
@@ -63,7 +64,17 @@ namespace MrPP.Helper {
 
         private void doChange(Inputable oldValue, Inputable newValue)
         {
-            
+            if (oldValue != null)
+            {
+                GazeTarget target = oldValue.gameObject.AskComponent<GazeTarget>();
+                target.focusExit();
+            }
+
+            if (newValue != null)
+            {
+                GazeTarget target = newValue.gameObject.AskComponent<GazeTarget>();
+                target.focusEnter();
+            }
             if (newValue == null)
             {
                 _focus.SetActive(false);

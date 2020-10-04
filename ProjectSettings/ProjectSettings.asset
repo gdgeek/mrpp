@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Foxconn.mrpp.com
-  productName: Foxconn
+  companyName: PartyBuilding.mrpp.com
+  productName: PartyBuilding
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 6cd5980dd2207d64fb70e962345e57d1,
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 4196e219d50253446bcb387e9bc9b708,
     type: 3}
   m_ShowUnitySplashAds: 0
   m_AdsAndroidGameId: 
@@ -274,7 +274,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 6cd5980dd2207d64fb70e962345e57d1, type: 3}
+      m_Icon: {fileID: 2800000, guid: 4196e219d50253446bcb387e9bc9b708, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -719,14 +719,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: mrpp.Foxconn
+  metroPackageName: mrpp.PartyBuilding
   metroPackageVersion: 1.0.0.1
   metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: Foxconn.mrpp.com
-  metroCertificateIssuer: Foxconn.mrpp.com
-  metroCertificateNotAfter: 80c0f75c38b3d701
-  metroApplicationDescription: mrpp.Foxconn
+  metroCertificateSubject: PartyBuilding.mrpp.com
+  metroCertificateIssuer: PartyBuilding.mrpp.com
+  metroCertificateNotAfter: 802d7d92c0b7d701
+  metroApplicationDescription: mrpp.PartyBuilding
   wsaImages: {}
   metroTileShortName: Foxconn
   metroTileShowName: 0
@@ -738,8 +738,8 @@ PlayerSettings:
   metroDefaultTileSize: 1
   metroTileForegroundText: 2
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
-  metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
-    a: 1}
+  metroSplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628,
+    a: 0}
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities:
     WindowsStoreApps:
@@ -783,7 +783,7 @@ PlayerSettings:
       WebCam: True
   metroTargetDeviceFamilies:
     Desktop: False
-    Holographic: False
+    Holographic: True
     IoT: False
     IoTHeadless: False
     Mobile: False

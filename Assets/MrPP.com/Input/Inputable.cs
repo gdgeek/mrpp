@@ -72,7 +72,8 @@ namespace MrPP.Input
             }
         }
 
-       
+   
+
         public void OnPointerClicked(MixedRealityPointerEventData eventData)
         {
             doClick();

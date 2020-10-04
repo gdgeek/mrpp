@@ -107,7 +107,12 @@ namespace MrPP.Network
 
         public void setPose(Yggdrasil.AsgardPose aPose)
         {
-            pose_ = aPose;
+
+            if (controler && Bridge.Instance != null)
+            {
+                Bridge.Instance.post(this.handle, "pose_", aPose);
+            }
+          //  pose_ = aPose;
         }
     }
 }

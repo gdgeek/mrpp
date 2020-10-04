@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 7f1ec5b957ed0fc4f934903196c6badc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Font Awesome 5 Free
+  fontNames:
+  - Font Awesome 5 Free
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ba7bc8704069af9499a5f88f30130c59, type: 3}
+  - {fileID: 12800000, guid: d20e06a3db4c13d458a2fc1459bfa722, type: 3}
+  - {fileID: 12800000, guid: 51ef43758ca8c4a438f7136ca1200e26, type: 3}
+  - {fileID: 12800000, guid: f0b5d416fbeef09489bd2c8502248957, type: 3}
+  - {fileID: 12800000, guid: d9420b0717ce76244a68536b852aad70, type: 3}
+  - {fileID: 12800000, guid: 0cf47878567c69441ba507cfb2638ac4, type: 3}
+  - {fileID: 12800000, guid: 968643deda64fcc43923e8b705e52720, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

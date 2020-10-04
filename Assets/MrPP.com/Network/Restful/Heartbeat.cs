@@ -7,11 +7,23 @@ using UnityEngine;
 using Mirror;
 
 namespace MrPP.Restful
-{ 
+{
     public class Heartbeat : NetworkBehaviour
     {
         [SerializeField]
         private Uri _uri;
+
+        [SerializeField]
+        private string _uriKey = "api";
+        public Uri uri{
+            get {
+                if (_uri == null) {
+                    _uri = UriManager.Instance.getUri(_uriKey);
+                }
+                return _uri;
+            
+            }
+        }
         [Serializable]
         public struct Data
         {
@@ -78,7 +90,7 @@ namespace MrPP.Restful
         {
 
           
-            var op = Restful.RestfulManager.Instance.options(Restful.RestfulManager.Uri(_uri.value, "heartbeats"), new Dictionary<string, string> { { "d", "s" } });
+            var op = Restful.RestfulManager.Instance.options(Restful.RestfulManager.Uri(uri.value, "heartbeats"), new Dictionary<string, string> { { "d", "s" } });
            
 
             Restful.RestfulManager.Instance.getArray<Data>(op, delegate (Data[] datas)

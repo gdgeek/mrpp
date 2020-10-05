@@ -41,6 +41,8 @@ namespace MrPP.Network
         UnityEvent hasControler;
         [SerializeField]
         UnityEvent lostControler;
+        [SerializeField]
+        UnityEvent releaseControler;
 
 
 
@@ -72,16 +74,22 @@ namespace MrPP.Network
 
         private void onLocked(uint oldValue, uint newValue)
         {
-            if (Hero.Instance.id == newValue)
+            if (Hero.Instance.id != oldValue &&  Hero.Instance.id == newValue)
             {
                 hasControler?.Invoke();
 
             }
-            else
+            
+            if(Hero.Instance.id == oldValue && Hero.Instance.id != newValue)
             {
                 lostControler?.Invoke();
             }
+            if (0 == newValue)
+            {
+                releaseControler?.Invoke();
+            }
 
+            
         }
 
         public string handle => this.longName();
@@ -107,7 +115,7 @@ namespace MrPP.Network
         }
         public void unlocked()
         {
-            Bridge.Instance.post(this.handle, "locked_", 0);
+            Bridge.Instance.post(this.handle, "locked_", (uint)0);
         }
         public bool controler
         {
@@ -132,6 +140,7 @@ namespace MrPP.Network
                     {
                         Bridge.Instance.post(this.handle, "pose_", pose);
                     }
+                    this.target.hasChanged = false;
                 }
 
             }

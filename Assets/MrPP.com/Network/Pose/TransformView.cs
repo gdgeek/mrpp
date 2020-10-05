@@ -78,11 +78,13 @@ namespace MrPP.Network {
         void Update()
         {
             if (model.controler)
-            {
+            {  
                 if (this.target.hasChanged)
                 {
                     MrPP.Myth.Yggdrasil.AsgardPose pose = MrPP.Myth.Yggdrasil.Instance.GetAsgardPose(this.target);
                     model.update(pose);
+
+                    this.target.hasChanged = false;
                 }
 
             }

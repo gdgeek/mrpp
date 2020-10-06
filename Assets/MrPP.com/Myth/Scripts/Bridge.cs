@@ -28,6 +28,8 @@ namespace MrPP.Myth
 
         private void broadcast(string handle, string evt, object data)
         {
+           // Debug.LogError(evt);
+           // Debug.LogError(data);
             BridgeBroadcast.Instance.broadcast(handle, evt, data);
         }
         [Command]

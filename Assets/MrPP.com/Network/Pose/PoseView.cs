@@ -82,6 +82,8 @@ namespace MrPP.Network {
                     MrPP.Myth.Yggdrasil.AsgardPose pose = MrPP.Myth.Yggdrasil.Instance.GetAsgardPose(this.target);
                     _model.update(pose);
 
+                    this.target.hasChanged = false;
+
                 }
 
             }

@@ -77,7 +77,7 @@ namespace MrPP.Network {
         public void unlocked()
         {
 
-            Bridge.Instance.post(this.handle, "locked_", 0);
+            Bridge.Instance.post(this.handle, "locked_", (uint)0);
         }
         public bool controler
         {

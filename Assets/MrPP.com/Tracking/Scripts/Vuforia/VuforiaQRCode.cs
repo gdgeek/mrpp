@@ -83,7 +83,6 @@ namespace MrPP.Common
         {
             if (qrThread != null)
             {
-                Debug.LogError("close qrcode");
                 VuforiaARController.Instance.UnregisterTrackablesUpdatedCallback(OnTrackablesUpdated);
 
            

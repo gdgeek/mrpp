@@ -97,11 +97,8 @@ namespace MrPP.Restful
             {
                 if (datas.Length != 0) { 
                    _datas.Clear();
-                    Debug.LogError(datas.Length);
                     foreach (Data d in datas) {
-                        Debug.LogError(d.type);
                         _datas.Add(d);
-                        Debug.LogError("=====");
                     }
                 }
                 //   _datas = new SyncList<Data>();

@@ -17,14 +17,13 @@ namespace MrPP.Restful {
 
         internal void broadcasting(Heartbeat.Data data)
         {
-            Debug.LogError("@#" + data.type);
             IEventFactory[] factories = this.gameObject.GetComponentsInChildren<IEventFactory>();
             
             if (data.id > this.last_)
             {
                 foreach (var factory in factories)
                 {
-//                    Debug.LogError("@" + factory.type);
+                   // Debug.LogError("@" + factory.type);
                  //   Debug.LogError(data.type);
                     if (factory.type.ToLower() == data.type.ToLower())
                     {

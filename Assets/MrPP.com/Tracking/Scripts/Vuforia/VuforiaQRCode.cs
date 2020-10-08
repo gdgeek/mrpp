@@ -10,6 +10,7 @@ using ZXing.QrCode;
 using ZXing.Common;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 
 
 #if NO_UNITY_VUFORIA
@@ -38,14 +39,14 @@ namespace MrPP.Common
         private bool m_RegisteredFormat = false;
 
         public bool reading;
-
-        public List<string> _qrMessage = new List<string>();
+        ConcurrentQueue<ZXing.Result> messageQueue_ = new ConcurrentQueue<ZXing.Result>();
+       // public List<string> _qrMessage = new List<string>();
         // public UnityEngine.UI.Text labelQrc;
         public AudioSource audioSource;
         Thread qrThread;
-        private Color32[] c;
-        private int W, H;
-        Image QCARoutput;
+        private Color32[] color32_;
+        private int width, height;
+        Image output;
         bool updC;
         bool gotResult = false;
 
@@ -70,7 +71,7 @@ namespace MrPP.Common
                 qrThread = new Thread(DecodeQR);
                 qrThread.Start();
                 running = true;
-                Debug.LogError("open qrcode");
+              //  Debug.LogError("open qrcode");
             }
 
         }
@@ -102,8 +103,8 @@ namespace MrPP.Common
 
                 m_RegisteredFormat = true;
             }
-            QCARoutput = cam.GetCameraImage(m_PixelFormat);
-            if (QCARoutput != null)
+            output = cam.GetCameraImage(m_PixelFormat);
+            if (output != null)
             {
                 reading = true;
 
@@ -121,24 +122,24 @@ namespace MrPP.Common
 
             if (reading)
             {
-                if (QCARoutput != null)
+                if (output != null)
                 {
                     if (updC)
                     {
                         updC = false;
                         Invoke("ForceUpdateC", 1f);
-                        if (QCARoutput == null)
+                        if (output == null)
                         {
                             return;
                         }
-                        c = null;
-                        c = ImageToColor32(QCARoutput);
-                        if (W == 0 | H == 0)
+                        color32_ = null;
+                        color32_ = ImageToColor32(output);
+                        if (width == 0 | height == 0)
                         {
-                            W = QCARoutput.BufferWidth;
-                            H = QCARoutput.BufferHeight;
+                            width = output.BufferWidth;
+                            height = output.BufferHeight;
                         }
-                        QCARoutput = null;
+                        output = null;
                     }
                 }
             }
@@ -146,9 +147,19 @@ namespace MrPP.Common
             //labelQrc.text = QRMessage;
             if (gotResult)
             {
-                foreach (var message in _qrMessage) {
-                    this.onRecevie?.Invoke(message);
+
+                while (messageQueue_.Count > 0)
+                {
+                    
+                    if(messageQueue_.TryDequeue(out ZXing.Result result))
+                    { 
+                        Debug.LogError(result.Text);
+                        this.onRecevie?.Invoke(result.Text);
+                    }
                 }
+
+
+            
 
                 // audioSource.Play();
                 gotResult = false;
@@ -161,18 +172,19 @@ namespace MrPP.Common
             while (running)
             {
           
-                if (reading && c != null && W > 0 && H > 0)
+                if (reading && color32_ != null && width > 0 && height > 0)
                 {
                     try
                     {
-                        ZXing.Result[] result = barcodeReader.DecodeMultiple(c, W, H);
-                        _qrMessage.Clear();
-                        if (result != null) { 
-                            foreach (var r in result)
+                        ZXing.Result[] list = barcodeReader.DecodeMultiple(color32_, width, height);
+                       // _qrMessage.Clear();
+                        if (list != null) { 
+                            foreach (var result in list)
                             {
-                                _qrMessage.Add(r.Text);
+                                messageQueue_.Enqueue(result);  
+                                //_qrMessage.Add(r.Text);
                             }
-                        }    
+                        }       
 
                     }
                     catch (Exception e)

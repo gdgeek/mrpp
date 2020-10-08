@@ -24,7 +24,7 @@ namespace MrPP.Restful {
             {
                 foreach (var factory in factories)
                 {
-                    Debug.LogError("@" + factory.type);
+//                    Debug.LogError("@" + factory.type);
                  //   Debug.LogError(data.type);
                     if (factory.type.ToLower() == data.type.ToLower())
                     {

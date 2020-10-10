@@ -8,14 +8,7 @@ using UnityEngine.Events;
 
 namespace MrPP.Network
 {
-    /*
-    public interface ITransformModel
-    {
-        bool controler { get; }
 
-        void setPose(Yggdrasil.AsgardPose asgardPose);
-        void update(Yggdrasil.AsgardPose pose);
-    }*/
     public class SyncTransform : NetworkBehaviour, IBridgeReceiver
     {
 

@@ -18,7 +18,9 @@ MonoBehaviour:
   - serializedVersion: 2
     m_Bits: 32
   - serializedVersion: 2
-    m_Bits: 2147483667
+    m_Bits: 1
+  - serializedVersion: 2
+    m_Bits: 2147483648
   debugDrawPointingRays: 1
   debugDrawPointingRayColors:
   - {r: 1, g: 0.58280706, b: 0, a: 1}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QCARInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="QCAR_Dataset_info.xsd">
+    <TargetSet version="3.4">
+        <AreaTarget version="1.0" lastSaved="2020-10-13T02:29:46Z" bbox="-2.5789 -1.3723 -1.0871 2.7680 1.0464 1.4418" targetId="c53b011304cc490ca77e7dd09a276252" name="room2" toolVersion="9.4.4" />
+    </TargetSet>
+</QCARInfo>

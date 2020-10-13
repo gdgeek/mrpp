@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: FD1011.mrpp.com
-  productName: FD1011
+  companyName: FD1013.mrpp.com
+  productName: FD1013
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -132,7 +132,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1011
+  bundleVersion: 1013
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -719,16 +719,16 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: mrpp.fd1011
+  metroPackageName: mrpp.fd1013
   metroPackageVersion: 1.0.0.1
   metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: FD1011.mrpp.com
-  metroCertificateIssuer: FD1011.mrpp.com
-  metroCertificateNotAfter: 00a3f2a61cbed701
-  metroApplicationDescription: mrpp.fd1011
+  metroCertificateSubject: FD1013.mrpp.com
+  metroCertificateIssuer: FD1013.mrpp.com
+  metroCertificateNotAfter: 805bbb7aafbfd701
+  metroApplicationDescription: mrpp.fd1013
   wsaImages: {}
-  metroTileShortName: FD1011
+  metroTileShortName: FD1013
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

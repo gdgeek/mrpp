@@ -154,7 +154,7 @@ namespace MrPP.Project {
             return state;
         }
 
-        private ServerResponse serverResponse_ = null;
+        private ServerResponse serverResponse_;
       
         private StateBase client()
         {

@@ -13,6 +13,8 @@ namespace MrPP.Network
     {
 
         [SerializeField]
+        private bool _clientAuthority = true;
+        [SerializeField]
         private Transform _target;
         public Transform target
         {
@@ -114,7 +116,15 @@ namespace MrPP.Network
         {
             get
             {
-                if (Hero.Instance == null)
+                if (!_clientAuthority) {
+                    if (this.isServer)
+                    {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }else if (Hero.Instance == null)
                 {
                     return true;
                 }

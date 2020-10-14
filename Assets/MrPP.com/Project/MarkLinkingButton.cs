@@ -12,8 +12,7 @@ namespace MrPP.Project
     {
         [SerializeField]
         private HostList _hostList;
-        [SerializeField]
-        private NetworkDiscovery _discovery;
+
 
         
         private Transform target_ = null;
@@ -22,7 +21,8 @@ namespace MrPP.Project
             refresh();
         }
         public void Start() {
-            _discovery.OnServerFound.AddListener(onDiscoveredServer);
+
+            Network.NetworkSystem.Instance.discovery.OnServerFound.AddListener(onDiscoveredServer);
 
         }
         

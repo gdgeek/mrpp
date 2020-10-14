@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Projects/SerriedCabinet/Scenes/MirrorScene.unity
     guid: b09a23c9b1acb6946b009396e109e784
   - enabled: 1
-    path: Assets/Projects/SampleGame/Scenes/testscene.unity
-    guid: 316492fc39932bf42b3f3824b05fd584
+    path: Assets/Projects/SampleGame/Scenes/SampleGame.unity
+    guid: 5d8b13e6de108f840bb1d74c777bb0fe
   m_configObjects: {}

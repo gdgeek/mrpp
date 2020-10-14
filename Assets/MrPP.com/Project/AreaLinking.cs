@@ -14,8 +14,11 @@ namespace MrPP.Project
     public class AreaLinking : MonoBehaviour
     {
 
-        public void doFound() {
-            fsm_.post("found");
+        public void doFound(Transform target) {
+
+            target_ = target;
+            _button.show(target_);
+            fsm_.post("found", target);
         }
         public void doLost() {
             fsm_.post("lost");
@@ -33,7 +36,7 @@ namespace MrPP.Project
         public void testMark()
         {
 
-            this.doFound();
+            this.doFound(_testTarget);
         }
 #endif
 
@@ -51,30 +54,15 @@ namespace MrPP.Project
 
         [SerializeField]
         private Basis.Process _process = null;
+
         [SerializeField]
-        private Tracking.TrackingMark.Mark _mark;
         private Transform target_ = null;
 
-        private Tracking.TrackingHandler tracking_ = null;
+      //  private Tracking.TrackingHandler tracking_ = null;
 
         public void open()
         {
 
-            //tracking_ = this.gameObject.AddComponent<Tracking.TrackingHandler>();
-           // tracking_.addMaker(_mark);
-
-           // tracking_.onFind += delegate (Transform target)
-          //  {
-          //      target_ = target;
-           //     _button.show(target_);
-          //      Debug.LogError("Mark");
-           //     fsm_.post("mark");
-
-          //  };
-         //   tracking_.onLost += delegate (Transform tsm)
-         //   {
-         //       _button.hide();
-         //   };
         }
 
         private void doJoin(ServerResponse serverResponse)
@@ -251,7 +239,11 @@ namespace MrPP.Project
         private StateBase begin()
         {
             State state = new State();
-            state.addAction("found", "input");
+            state.addAction("found",delegate(FSMEvent evt) {
+
+                target_ = (Transform)evt.obj;
+                return "input";
+            });
             return state;
         }
     }

@@ -30,6 +30,12 @@ namespace MrPP.Network {
         [SerializeField]
         NetworkDiscovery _discovery;
 
+        public NetworkDiscovery discovery {
+
+            get {
+                return _discovery;
+            }
+        }
         void Start() {
             _discovery.OnServerFound.AddListener(onDiscoveredServer);
         }

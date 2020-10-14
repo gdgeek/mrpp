@@ -87,7 +87,7 @@ namespace MrPP.Network
             
         }
 
-        public string handle => this.longName();
+        public string handle => this.longName()+this.netId;
 
         public void broadcast(string evt, object data)
         {
@@ -141,6 +141,7 @@ namespace MrPP.Network
                     MrPP.Myth.Yggdrasil.AsgardPose pose = MrPP.Myth.Yggdrasil.Instance.GetAsgardPose(this.target);
                     if (Bridge.Instance != null)
                     {
+                        Debug.Log(this.handle);
                         Bridge.Instance.post(this.handle, "pose_", pose);
                     }
                     this.target.hasChanged = false;

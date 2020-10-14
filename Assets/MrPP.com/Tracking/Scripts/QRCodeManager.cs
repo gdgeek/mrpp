@@ -6,10 +6,12 @@ namespace MrPP.Common
 { 
     public abstract class QRCodeManager : GDGeek.Singleton<QRCodeManager>
     {
-          public Action<string> onRecevie {
-                get;
-                set;
+        public Action<string> onRecevie
+        {
+            get;
+            set;
         }
+      
         public abstract void open();
         public abstract void close();
 

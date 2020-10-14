@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Projects/SerriedCabinet/Scenes/MirrorScene.unity
     guid: b09a23c9b1acb6946b009396e109e784
+  - enabled: 1
+    path: Assets/Projects/SampleGame/Scenes/testscene.unity
+    guid: 316492fc39932bf42b3f3824b05fd584
   m_configObjects: {}

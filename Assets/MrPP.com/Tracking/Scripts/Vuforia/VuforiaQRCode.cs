@@ -10,7 +10,6 @@ using ZXing.QrCode;
 using ZXing.Common;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System.Collections.Concurrent;
 
 
 #if NO_UNITY_VUFORIA
@@ -39,20 +38,20 @@ namespace MrPP.Common
         private bool m_RegisteredFormat = false;
 
         public bool reading;
-        ConcurrentQueue<ZXing.Result> messageQueue_ = new ConcurrentQueue<ZXing.Result>();
-       // public List<string> _qrMessage = new List<string>();
+
+        public List<string> QRMessage = new List<string>();
         // public UnityEngine.UI.Text labelQrc;
         public AudioSource audioSource;
         Thread qrThread;
-        private Color32[] color32_;
-        private int width, height;
-        Image output;
+        private Color32[] c;
+        private int W, H;
+        Image QCARoutput;
         bool updC;
         bool gotResult = false;
 
         private void Start()
         {
-            
+
 
         }
         private bool running = false;
@@ -60,7 +59,8 @@ namespace MrPP.Common
         {
             //  CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
 
-            if (qrThread == null) {
+            if (qrThread == null)
+            {
                 VuforiaARController.Instance.RegisterTrackablesUpdatedCallback(OnTrackablesUpdated);
 
                 var isAutoFocus = CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
@@ -71,7 +71,7 @@ namespace MrPP.Common
                 qrThread = new Thread(DecodeQR);
                 qrThread.Start();
                 running = true;
-              //  Debug.LogError("open qrcode");
+                Debug.LogError("open qrcode");
             }
 
         }
@@ -84,14 +84,15 @@ namespace MrPP.Common
         {
             if (qrThread != null)
             {
+                Debug.LogError("close qrcode");
                 VuforiaARController.Instance.UnregisterTrackablesUpdatedCallback(OnTrackablesUpdated);
 
-           
+
                 qrThread.Abort();
                 running = false;
                 qrThread = null;
             }
-          
+
         }
         public void OnTrackablesUpdated()
         {
@@ -103,8 +104,8 @@ namespace MrPP.Common
 
                 m_RegisteredFormat = true;
             }
-            output = cam.GetCameraImage(m_PixelFormat);
-            if (output != null)
+            QCARoutput = cam.GetCameraImage(m_PixelFormat);
+            if (QCARoutput != null)
             {
                 reading = true;
 
@@ -122,24 +123,24 @@ namespace MrPP.Common
 
             if (reading)
             {
-                if (output != null)
+                if (QCARoutput != null)
                 {
                     if (updC)
                     {
                         updC = false;
                         Invoke("ForceUpdateC", 1f);
-                        if (output == null)
+                        if (QCARoutput == null)
                         {
                             return;
                         }
-                        color32_ = null;
-                        color32_ = ImageToColor32(output);
-                        if (width == 0 | height == 0)
+                        c = null;
+                        c = ImageToColor32(QCARoutput);
+                        if (W == 0 | H == 0)
                         {
-                            width = output.BufferWidth;
-                            height = output.BufferHeight;
+                            W = QCARoutput.BufferWidth;
+                            H = QCARoutput.BufferHeight;
                         }
-                        output = null;
+                        QCARoutput = null;
                     }
                 }
             }
@@ -147,21 +148,15 @@ namespace MrPP.Common
             //labelQrc.text = QRMessage;
             if (gotResult)
             {
-
-                while (messageQueue_.Count > 0)
+                //Debug.LogError(QRMessage);
+                foreach (var qr in QRMessage)
                 {
-                    
-                    if(messageQueue_.TryDequeue(out ZXing.Result result))
-                    { 
-                        Debug.LogError(result.Text);
-                        this.onRecevie?.Invoke(result.Text);
-                    }
+                    this.onRecevie?.Invoke(qr);
                 }
-
-
-            
-
-                // audioSource.Play();
+                if (audioSource != null)
+                {
+                    audioSource?.Play();
+                }
                 gotResult = false;
             }
         }
@@ -171,21 +166,25 @@ namespace MrPP.Common
             barcodeReader.ResultFound += OnResultF;
             while (running)
             {
-          
-                if (reading && color32_ != null && width > 0 && height > 0)
+                //  Debug.Log("1");
+
+                if (reading && c != null && W > 0 && H > 0)
                 {
                     try
                     {
-                        ZXing.Result[] list = barcodeReader.DecodeMultiple(color32_, width, height);
-                       // _qrMessage.Clear();
-                        if (list != null) { 
-                            foreach (var result in list)
-                            {
-                                messageQueue_.Enqueue(result);  
-                                //_qrMessage.Add(r.Text);
-                            }
-                        }       
+                        ZXing.Result[] result = barcodeReader.DecodeMultiple(c, W, H);
+                        c = null;
+                        if (result != null)
+                        {
 
+                            QRMessage.Clear();
+                            foreach (ZXing.Result r in result)
+                            {
+                                QRMessage.Add(r.Text);
+                            }
+                            //QRMessage = new List<string>(); = result.Text;
+
+                        }
                     }
                     catch (Exception e)
                     {

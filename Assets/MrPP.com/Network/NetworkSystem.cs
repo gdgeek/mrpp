@@ -35,7 +35,6 @@ namespace MrPP.Network {
         }
        
         public void startHost() {
-            serverResponse_ = null;
             discoveredServers.Clear();
             _manager.StartHost();
             _discovery.AdvertiseServer();
@@ -43,11 +42,10 @@ namespace MrPP.Network {
         }
         public void listening()
         {
-            serverResponse_ = null;
             discoveredServers.Clear();
             _discovery.StartDiscovery();
         }
-        private ServerResponse serverResponse_ = null;
+        private ServerResponse serverResponse_;
         public ServerResponse serverResponse{
             get{
                 return serverResponse_; 

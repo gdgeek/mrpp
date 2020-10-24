@@ -18,6 +18,8 @@ namespace MrPP.Project
 
             target_ = target;
             _button.show(target_);
+            Yggdrasil.Instance.lockedMark(target_);
+            //Yggdrasil.Instance.setupMark(target_);
             fsm_.post("found", target);
         }
         public void doLost() {
@@ -30,14 +32,7 @@ namespace MrPP.Project
             _stateName = fsm_.getCurrSubState().name;
 
         }
-        [SerializeField]
-        private Transform _testTarget;
-
-        public void testMark()
-        {
-
-            this.doFound(_testTarget);
-        }
+      
 #endif
 
         [SerializeField]
@@ -53,12 +48,12 @@ namespace MrPP.Project
         private ClientList _clients;
 
         [SerializeField]
-        private Basis.Process _process = null;
+        private bool _autoStart = false;
 
         [SerializeField]
-        private Transform target_ = null;
+        private Basis.Process _process = null;
 
-      //  private Tracking.TrackingHandler tracking_ = null;
+        private Transform target_ = null;
 
         public void open()
         {
@@ -106,7 +101,7 @@ namespace MrPP.Project
 
             fsm_.addState("host", host());
             fsm_.addState("start", start());
-
+            fsm_.addState("auto_start", autoStart());
 
 
             fsm_.addState("client", client());
@@ -114,6 +109,21 @@ namespace MrPP.Project
             fsm_.addState("play", play());
             fsm_.init("begin");
 
+        }
+
+        private StateBase autoStart()
+        {
+            State state = TaskState.Create(delegate ()
+            {
+                Task task = new Task();
+                TaskManager.PushFront(task, delegate
+                {
+                    Network.NetworkSystem.Instance.startHost();
+                });
+                return task;
+
+            }, this.fsm_, "start");
+            return state;
         }
 
         private void doOnline()
@@ -143,7 +153,7 @@ namespace MrPP.Project
                 _button.setState(MarkLinkingButton.State.Play);
             };
             state.addAction("adjust", delegate {
-                Yggdrasil.Instance.setupMark(target_);
+                Yggdrasil.Instance.lockedMark(target_);
             });   
                 
             return state;
@@ -242,6 +252,9 @@ namespace MrPP.Project
             state.addAction("found",delegate(FSMEvent evt) {
 
                 target_ = (Transform)evt.obj;
+                if (_autoStart) {
+                    return "auto_start";
+                }
                 return "input";
             });
             return state;

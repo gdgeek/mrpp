@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="dangjian" size="21.799999 21.799999" />
+    <ImageTarget name="zjb" size="0.175000 0.094571" />
+    <ImageTarget name="huiyiyitiji" size="0.200000 0.110415" />
+    <ImageTarget name="shiyinqi" size="0.200000 0.110415" />
+    <ImageTarget name="head" size="0.200000 0.110370" />
+    <ImageTarget name="xdd" size="0.210000 0.296678" />
+  </Tracking>
+</QCARConfig>

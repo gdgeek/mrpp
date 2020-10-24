@@ -23,6 +23,11 @@ namespace MrPP.Myth
         [SerializeField]
         private MountPoint _mount = MountPoint.Balance;
 
+        public void lockedMark(Transform target)
+        {
+            LockedMark loaded = this.gameObject.AskComponent<LockedMark>();
+            loaded.locking(_mark, target);
+        }
 
         public Transform point {
             get {
@@ -162,8 +167,6 @@ namespace MrPP.Myth
             return new AsgardPose(position, up, forward, scale);
         }
         public void setupMark(Transform mark) {
-          //  TransformData data = new TransformData(mark, TransformData.Type.World);
-       //     data.write(ref _mark, TransformData.Type.World);
             _mark.transform.position = mark.position;
             _mark.transform.rotation = mark.rotation;
         }

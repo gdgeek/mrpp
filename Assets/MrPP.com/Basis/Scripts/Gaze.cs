@@ -20,6 +20,13 @@ namespace MrPP.Helper {
         private GameObject _normal = null;
         [SerializeField]
         private Inputable target_ = null;
+
+        public bool focus {
+            get {
+                return _focus.activeSelf;
+            }
+        
+        }
         void Awake() {
             _focus.SetActive(false);
             _normal.SetActive(true);
@@ -28,16 +35,16 @@ namespace MrPP.Helper {
 
 
             Ray ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+           
            // _normal.transform.position = ray.GetPoint(-1);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, float.MaxValue, _tapToCenterLayerMask))
             {
                 _focus.transform.position = hit.point;
                 _focus.transform.LookAt(hit.normal);
-                // Inputable
                 Inputable target = hit.collider.gameObject.GetComponent<Inputable>();
                 if (target == null) {
-                    Debug.LogError(hit.collider.gameObject.name);
+                    //Debug.LogError(hit.collider.gameObject.name);
                 }
                 if (target == null && target_ !=null) {
                     doChange(target_, null);
@@ -52,9 +59,14 @@ namespace MrPP.Helper {
 
             }
             else {
-                if (target_ != null) {
+                if (target_ != null)
+                {
                     doChange(target_, null);
                     target_ = null;
+                }
+
+                if (focus && target_ == null) {
+                    doChange(null, null);
                 }
 
 

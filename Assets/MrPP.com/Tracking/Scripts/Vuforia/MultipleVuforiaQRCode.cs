@@ -98,7 +98,7 @@ namespace MrPP.Common
             Vuforia.CameraDevice cam = Vuforia.CameraDevice.Instance;
             if (!_registeredFormat)
             {
-                Vuforia.CameraDevice.Instance.SetFrameFormat(_pixelFormat, true);
+                Vuforia.CameraDevice.Instance.SetFrameFormat(PIXEL_FORMAT.GRAYSCALE, true);
                 _registeredFormat = true;
             }
 
@@ -162,6 +162,9 @@ namespace MrPP.Common
                     try
                     {
                         ZXing.Result[] list = reader.decodeMultiple(bitmap_);
+                        if (list!= null && list.Length != 0) {
+                            Debug.LogError(list.Length);
+                        }
                         if (list != null)
                         {
                             foreach (var result in list)

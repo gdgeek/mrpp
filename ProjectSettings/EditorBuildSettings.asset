@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Projects/SerriedCabinet/Scenes/MirrorScene.unity
     guid: b09a23c9b1acb6946b009396e109e784
   - enabled: 0
     path: Assets/Projects/SampleGame/Scenes/SampleGame.unity
     guid: 5d8b13e6de108f840bb1d74c777bb0fe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Projects/PartyBuilding/Scenes/PBRoom.unity
     guid: f8b7180612ec19e45bb963b5fb258751
   - enabled: 0

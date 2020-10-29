@@ -22,7 +22,7 @@ namespace MrPP.PartyBuilding {
         private void setup(Target item)
         {
             this.target = item;
-            _show.show(item.transform, item.transform.lossyScale);
+            _show.show(item.transform);
         }
     }
 }

@@ -15,18 +15,19 @@ namespace MrPP.PartyBuilding
             set;
         }
         [SerializeField]
-        Transform mark_ = null;
+        Transform target_ = null;
         public void Start()
         {
             //this.gameObject.SetActive(false);
         }
       
-        internal void show(Transform mark, Vector2 size)
+        internal void show(Transform target)
         {
-            this.transform.setGlobalScale(new Vector3(size.x, size.y, 0.01f));
-            mark_ = mark;
-            this.transform.position = mark_.position;
-            this.transform.rotation = mark_.rotation;
+           // Debug.LogError(size);
+            this.transform.setGlobalScale(target.lossyScale);
+            target_ = target;
+            this.transform.position = target_.position;
+            this.transform.rotation = target_.rotation;
             this.gameObject.SetActive(true);
         }
         [SerializeField]
@@ -42,7 +43,7 @@ namespace MrPP.PartyBuilding
         internal void hide()
         {
             this.gameObject.SetActive(false);
-            mark_ = null;
+            target_ = null;
         }
     }
 }

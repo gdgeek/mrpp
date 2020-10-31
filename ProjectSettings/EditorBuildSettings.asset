@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Projects/SerriedCabinet/Scenes/MirrorScene.unity
     guid: b09a23c9b1acb6946b009396e109e784
   - enabled: 0
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Projects/PartyBuilding/Scenes/XiAn_rdi.unity
     guid: 55d0e3c25aadea64db4b195173f646c1
+  - enabled: 1
+    path: Assets/Projects/Machine/Scenes/m2.unity
+    guid: 11639ba44b528394484bb7397e56512e
   m_configObjects: {}

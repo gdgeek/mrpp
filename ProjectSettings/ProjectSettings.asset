@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: fd1029.mrpp.com
-  productName: fd1029
+  companyName: m1031.mrpp.com
+  productName: m1031
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 157c38c4243c7b04ea9b7668b1859417,
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 74ebfa89af37aba43b08982d7f97eb7d,
     type: 3}
   m_ShowUnitySplashAds: 0
   m_AdsAndroidGameId: 
@@ -132,7 +132,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1029
+  bundleVersion: 1031
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -274,7 +274,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 157c38c4243c7b04ea9b7668b1859417, type: 3}
+      m_Icon: {fileID: 2800000, guid: 74ebfa89af37aba43b08982d7f97eb7d, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -812,16 +812,16 @@ PlayerSettings:
     : 6
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: mrpp.fd1029
+  metroPackageName: mrpp.m1031
   metroPackageVersion: 1.0.2.6
   metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: fd1029.mrpp.com
-  metroCertificateIssuer: fd1029.mrpp.com
-  metroCertificateNotAfter: 00da7e77e8ccd701
-  metroApplicationDescription: mrpp.fd1029
+  metroCertificateSubject: m1031.mrpp.com
+  metroCertificateIssuer: m1031.mrpp.com
+  metroCertificateNotAfter: 00f8c47192ced701
+  metroApplicationDescription: mrpp.m1031
   wsaImages: {}
-  metroTileShortName: fd1029
+  metroTileShortName: m1031
   metroTileShowName: 0
   metroMediumTileShowName: 1
   metroLargeTileShowName: 0

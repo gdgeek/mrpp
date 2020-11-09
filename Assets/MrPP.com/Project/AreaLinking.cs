@@ -170,6 +170,12 @@ namespace MrPP.Project
 
                 _button.setState(MarkLinkingButton.State.Wait);
                 Network.NetworkSystem.Instance.client();
+                TaskWait tw = new TaskWait(1);
+                TaskManager.PushBack(tw, delegate
+                {
+                    fsm_.post("play");
+                });
+                TaskManager.Run(tw);
             };
             state.addAction("play", "play");
 
@@ -205,9 +211,15 @@ namespace MrPP.Project
             {
                 Network.NetworkSystem.Instance.listening();
                 _button.setState(MarkLinkingButton.State.Input);
+                TaskWait tw = new TaskWait(5);
+                TaskManager.PushBack(tw, delegate
+                {
+                    doHost();
+                });
+                TaskManager.Run(tw);
             };
 
-
+            
             state.addAction("host", "host");
             state.addAction("client", "client");
             state.onOver += delegate
@@ -226,7 +238,13 @@ namespace MrPP.Project
             State state = new State();
             state.onStart += delegate
             {
+                TaskWait tw = new TaskWait(1);
+                TaskManager.PushBack(tw, delegate
+                {
+                    fsm_.post("start");
 
+                });
+                TaskManager.Run(tw);
                 Network.NetworkSystem.Instance.startHost();
             };
             state.addAction("online", delegate
@@ -249,7 +267,7 @@ namespace MrPP.Project
         private StateBase begin()
         {
             State state = new State();
-            state.addAction("found",delegate(FSMEvent evt) {
+            state.addAction("found", delegate(FSMEvent evt) {
 
                 target_ = (Transform)evt.obj;
                 if (_autoStart) {

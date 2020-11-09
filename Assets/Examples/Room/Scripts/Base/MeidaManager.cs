@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-namespace MrPP.PartyBuilding
+namespace MrPP.Game
 {
     public class MeidaManager : MonoBehaviour
     {

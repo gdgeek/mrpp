@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QCARInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="QCAR_Dataset_info.xsd">
+    <TargetSet version="3.4">
+        <AreaTarget version="1.0" lastSaved="2020-11-02T12:08:35Z" bbox="-2.7402 -1.2665 -3.8953 1.2286 1.3336 2.5280" targetId="45f90a9547be4a5d9fefa4634e38f81e" name="MyOffice" toolVersion="9.5.0" />
+    </TargetSet>
+</QCARInfo>

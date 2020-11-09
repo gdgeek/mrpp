@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace MrPP.PartyBuilding
+namespace MrPP.Game
 {
     public class TargetContent: MonoBehaviour
     {

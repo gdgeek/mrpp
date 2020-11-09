@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MrPP.PartyBuilding
+namespace MrPP.Game
 {
     public class TargetShow : MonoBehaviour
     {

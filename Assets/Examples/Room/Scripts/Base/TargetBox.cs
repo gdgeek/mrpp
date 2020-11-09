@@ -1,9 +1,9 @@
-﻿using MrPP.PartyBuilding;
+﻿using MrPP.Game;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace MrPP.PartyBuilding { 
+namespace MrPP.Game { 
     public class TargetBox : MonoBehaviour
     {
         [SerializeField]

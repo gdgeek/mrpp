@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace MrPP.PartyBuilding
+namespace MrPP.Game
 {
     public class BoardWindow : GDGeek.Singleton<BoardWindow>
     {

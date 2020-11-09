@@ -17,7 +17,6 @@ namespace MrPP.Input
     {
 
 
-      
 
         void IMixedRealityTouchHandler.OnTouchCompleted(HandTrackingInputEventData eventData)
         {
@@ -26,11 +25,7 @@ namespace MrPP.Input
             {
                 input.focusExit();
             }
-            IClicker[] clickers = this.gameObject.GetComponents<IClicker>();
-            foreach (var click in clickers)
-            {
-                click.execute();
-            }
+         
         }
 
         void IMixedRealityTouchHandler.OnTouchStarted(HandTrackingInputEventData eventData)
@@ -40,11 +35,16 @@ namespace MrPP.Input
             {
                 input.focusEnter();
             }
+            IClicker[] clickers = this.gameObject.GetComponents<IClicker>();
+            foreach (var click in clickers)
+            {
+                click.execute();
+            }
         }
 
         void IMixedRealityTouchHandler.OnTouchUpdated(HandTrackingInputEventData eventData)
         {
-       
+
         }
 
 
@@ -76,6 +76,8 @@ namespace MrPP.Input
 
         public void OnPointerClicked(MixedRealityPointerEventData eventData)
         {
+
+
             doClick();
         }
 
@@ -103,12 +105,21 @@ namespace MrPP.Input
             }
         }
 
-       
+
+       // [SerializeField]
+      //  private float _interval = 0.1f;
+        // private float time_ = 0f;
+        // private void Update() {
+        //    time_ += Time.deltaTime;
+        //   }
         private  void doClick() {
-            IClicker[] clickers = this.gameObject.GetComponents<IClicker>();
-            foreach (var click in clickers) {
-                click.execute();
-            }
+            //if (time_ > _interval) {
+            //    time_ = 0.0f;
+                IClicker[] clickers = this.gameObject.GetComponents<IClicker>();
+                foreach (var click in clickers) {
+                    click.execute();
+                }
+          //  }
         }
       
  

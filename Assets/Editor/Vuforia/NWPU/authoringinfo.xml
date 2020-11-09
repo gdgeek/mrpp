@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<QCARInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="QCAR_Dataset_info.xsd">
+    <TargetSet version="3.4">
+        <AreaTarget version="1.0" lastSaved="2020-11-04T08:09:49Z" bbox="-5.8198 -1.2283 -5.3160 1.9109 1.8239 1.5464" targetId="5795f3e237df460086c1ade717f0ec78" name="NWPU" toolVersion="9.5.0" />
+    </TargetSet>
+</QCARInfo>

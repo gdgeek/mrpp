@@ -6,11 +6,16 @@ namespace MrPP.Helper
 {
     public class IntId : MonoBehaviour
     {
-
+        [SerializeField]
+        private int _value;
         public int value
         {
-            set;
-            get;
+            set {
+                _value = value;
+            }
+            get {
+                return _value;
+            }
         }
     }
 }

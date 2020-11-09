@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace MrPP.PartyBuilding 
+namespace MrPP.Game 
 { 
     public class TargetManager : GDGeek.Singleton<TargetManager>
     {
@@ -28,8 +28,8 @@ namespace MrPP.PartyBuilding
                     Debug.LogError(body.name);
                     var content =  GameObject.Instantiate(body.content,this.transform);
                     content.transform.SetParent(this.transform);     
-                    content.transform.localPosition = Vector3.zero;
-                    content.transform.localRotation = Quaternion.identity;
+                    content.transform.position = body.transform.position;
+                    content.transform.rotation = body.transform.rotation;
                     //  content.transform.
                     content.gameObject.SetActive(true);
                    // TargetBox box = _boxPhototype.create(item, this.transform);
